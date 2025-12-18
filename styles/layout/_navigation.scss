@@ -1,0 +1,215 @@
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: $z-fixed;
+  padding: $spacing-lg 0;
+  @include glass-morphism(20px, 0.9);
+  border-bottom: 1px solid var(--border-primary);
+  @include transition(padding, background);
+  
+  &.scrolled {
+    padding: $spacing-md 0;
+  }
+  
+  &__container {
+    max-width: $container-max-width;
+    margin: 0 auto;
+    padding: 0 $container-padding;
+    @include flex-between;
+    gap: $spacing-lg;
+  }
+  
+  &__logo {
+    @include flex-center;
+    width: 48px;
+    height: 48px;
+    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    border-radius: $border-radius-lg;
+    font-family: $font-heading;
+    font-size: $font-size-xl;
+    font-weight: $font-weight-bold;
+    color: $color-neutral-100;
+    @include transition(transform);
+    
+    &:hover {
+      transform: scale(1.05);
+    }
+    
+    @include focus-visible;
+  }
+  
+  &__toggle {
+    @include button-reset;
+    @include flex-column;
+    gap: 6px;
+    width: 32px;
+    height: 32px;
+    padding: 4px;
+    display: none;
+    
+    @media (max-width: $breakpoint-md - 1px) {
+      display: flex;
+      justify-content: center;
+    }
+    
+    &-line {
+      width: 100%;
+      height: 2px;
+      background: var(--text-primary);
+      border-radius: $border-radius-full;
+      transition: transform $transition-base, opacity $transition-base;
+    }
+    
+    &[aria-expanded='true'] {
+      .nav__toggle-line {
+        &:nth-child(1) {
+          transform: translateY(8px) rotate(45deg);
+        }
+        
+        &:nth-child(2) {
+          opacity: 0;
+        }
+        
+        &:nth-child(3) {
+          transform: translateY(-8px) rotate(-45deg);
+        }
+      }
+    }
+    
+    @include focus-visible;
+  }
+  
+  &__menu {
+    @include flex-center;
+    gap: $spacing-xl;
+    
+    @media (max-width: $breakpoint-md - 1px) {
+      position: fixed;
+      top: 80px;
+      left: 0;
+      right: 0;
+      @include flex-column;
+      align-items: stretch;
+      gap: 0;
+      background: var(--bg-primary);
+      border-bottom: 1px solid var(--border-primary);
+      padding: $spacing-lg;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-20px);
+      transition: opacity $transition-base, transform $transition-base, visibility $transition-base;
+      
+      &.active {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+      }
+    }
+  }
+  
+  &__item {
+    @media (max-width: $breakpoint-md - 1px) {
+      border-bottom: 1px solid var(--border-primary);
+      
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+  }
+  
+  &__link {
+    position: relative;
+    font-weight: $font-weight-medium;
+    color: var(--text-secondary);
+    @include transition(color);
+    
+    @media (max-width: $breakpoint-md - 1px) {
+      display: block;
+      padding: $spacing-md 0;
+    }
+    
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--color-primary);
+      transition: width $transition-base;
+      
+      @media (max-width: $breakpoint-md - 1px) {
+        display: none;
+      }
+    }
+    
+    &:hover,
+    &.active {
+      color: var(--text-primary);
+      
+      &::after {
+        width: 100%;
+      }
+    }
+    
+    @include focus-visible;
+  }
+}
+
+.theme-toggle {
+  @include button-reset;
+  position: relative;
+  width: 40px;
+  height: 40px;
+  @include flex-center;
+  border-radius: $border-radius-full;
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  @include transition(background, transform);
+  
+  &:hover {
+    background: var(--bg-tertiary);
+    transform: scale(1.05);
+  }
+  
+  &__icon {
+    position: absolute;
+    @include transition(opacity, transform);
+    
+    &--sun {
+      opacity: 1;
+      transform: rotate(0deg);
+      
+      [data-theme='dark'] & {
+        opacity: 0;
+        transform: rotate(180deg);
+      }
+    }
+    
+    &--moon {
+      opacity: 0;
+      transform: rotate(-180deg);
+      
+      [data-theme='dark'] & {
+        opacity: 1;
+        transform: rotate(0deg);
+      }
+    }
+  }
+  
+  @include focus-visible;
+}
+
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+  z-index: $z-fixed + 1;
+  transform-origin: left;
+  transform: scaleX(0);
+  @include transition(transform);
+}

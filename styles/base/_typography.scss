@@ -1,0 +1,70 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $font-heading;
+  font-weight: $font-weight-bold;
+  line-height: $line-height-tight;
+  color: var(--text-primary);
+  margin-bottom: $spacing-md;
+}
+
+h1 {
+  font-size: clamp($font-size-4xl, 5vw, $font-size-6xl);
+}
+
+h2 {
+  font-size: clamp($font-size-3xl, 4vw, $font-size-5xl);
+}
+
+h3 {
+  font-size: clamp($font-size-2xl, 3vw, $font-size-4xl);
+}
+
+h4 {
+  font-size: clamp($font-size-xl, 2.5vw, $font-size-3xl);
+}
+
+h5 {
+  font-size: clamp($font-size-lg, 2vw, $font-size-2xl);
+}
+
+h6 {
+  font-size: clamp($font-size-base, 1.5vw, $font-size-xl);
+}
+
+p {
+  margin-bottom: $spacing-md;
+  line-height: $line-height-relaxed;
+  color: var(--text-secondary);
+}
+
+strong {
+  font-weight: $font-weight-semibold;
+}
+
+em {
+  font-style: italic;
+}
+
+a {
+  color: var(--color-primary);
+  @include transition(color);
+  
+  &:hover {
+    color: var(--color-secondary);
+  }
+  
+  @include focus-visible;
+}
+
+code {
+  font-family: 'Courier New', monospace;
+  font-size: 0.9em;
+  padding: 0.2em 0.4em;
+  background: var(--bg-secondary);
+  border-radius: $border-radius-sm;
+  color: var(--color-primary);
+}

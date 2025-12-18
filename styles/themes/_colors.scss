@@ -1,0 +1,35 @@
+// Light theme (default)
+:root {
+  --color-primary: #{$color-primary};
+  --color-secondary: #{$color-secondary};
+  --color-accent: #{$color-accent};
+  
+  --bg-primary: #{$color-neutral-100};
+  --bg-secondary: #{$color-neutral-200};
+  --bg-tertiary: #{$color-neutral-300};
+  
+  --text-primary: #{$color-neutral-900};
+  --text-secondary: #{$color-neutral-700};
+  --text-tertiary: #{$color-neutral-600};
+  
+  --border-primary: #{$color-neutral-300};
+  --border-secondary: #{$color-neutral-400};
+  
+  --color-success: #{$color-success};
+  --color-error: #{$color-error};
+  --color-warning: #{$color-warning};
+}
+
+// Dark theme
+[data-theme='dark'] {
+  --bg-primary: #{$color-dark-bg};
+  --bg-secondary: #{$color-dark-surface};
+  --bg-tertiary: #{$color-dark-border};
+  
+  --text-primary: #{$color-neutral-100};
+  --text-secondary: #{$color-neutral-400};
+  --text-tertiary: #{$color-neutral-500};
+  
+  --border-primary: #{$color-dark-border};
+  --border-secondary: #{$color-neutral-800};
+}

@@ -1,0 +1,27 @@
+.container {
+  max-width: $container-max-width;
+  margin: 0 auto;
+  padding: 0 $container-padding;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: $spacing-4xl;
+}
+
+.section-label {
+  display: inline-block;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-semibold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--color-primary);
+  margin-bottom: $spacing-md;
+}
+
+.section-title {
+  font-size: clamp($font-size-3xl, 4vw, $font-size-5xl);
+  font-weight: $font-weight-bold;
+  color: var(--text-primary);
+  margin-bottom: $spacing-lg;
+}

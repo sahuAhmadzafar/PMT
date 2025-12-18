@@ -1,0 +1,95 @@
+.form-group {
+  margin-bottom: $spacing-lg;
+}
+
+.form-label {
+  display: block;
+  font-weight: $font-weight-medium;
+  color: var(--text-primary);
+  margin-bottom: $spacing-sm;
+  
+  span {
+    color: var(--color-error);
+  }
+}
+
+.form-input {
+  width: 100%;
+  padding: $spacing-md;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-primary);
+  border-radius: $border-radius-md;
+  color: var(--text-primary);
+  font-size: $font-size-base;
+  @include transition(border-color, box-shadow);
+  
+  &::placeholder {
+    color: var(--text-tertiary);
+  }
+  
+  &:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(0, 102, 255, 0.1);
+  }
+  
+  &--textarea {
+    resize: vertical;
+    min-height: 120px;
+  }
+  
+  &.error {
+    border-color: var(--color-error);
+    
+    &:focus {
+      box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+    }
+  }
+  
+  &.success {
+    border-color: var(--color-success);
+  }
+}
+
+.form-error {
+  display: block;
+  margin-top: $spacing-xs;
+  font-size: $font-size-sm;
+  color: var(--color-error);
+  opacity: 0;
+  transform: translateY(-4px);
+  transition: opacity $transition-fast, transform $transition-fast;
+  
+  &.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.form-message {
+  margin-top: $spacing-lg;
+  padding: $spacing-md;
+  border-radius: $border-radius-md;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity $transition-base, transform $transition-base;
+  
+  &.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  &.success {
+    background: rgba(16, 185, 129, 0.1);
+    color: var(--color-success);
+    border: 1px solid var(--color-success);
+  }
+  
+  &.error {
+    background: rgba(239, 68, 68, 0.1);
+    color: var(--color-error);
+    border: 1px solid var(--color-error);
+  }
+}

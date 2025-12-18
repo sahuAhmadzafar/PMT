@@ -1,0 +1,82 @@
+.contact {
+  padding: $spacing-5xl $container-padding;
+  
+  &__content {
+    display: grid;
+    gap: $spacing-4xl;
+    max-width: 1000px;
+    margin: 0 auto;
+    
+    @include respond-to('lg') {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  
+  &__info {
+    @include flex-column;
+    gap: $spacing-2xl;
+  }
+  
+  &__text {
+    font-size: $font-size-lg;
+    color: var(--text-secondary);
+    line-height: $line-height-relaxed;
+  }
+  
+  &__details {
+    @include flex-column;
+    gap: $spacing-lg;
+  }
+  
+  &__detail {
+    display: flex;
+    align-items: center;
+    gap: $spacing-md;
+    color: var(--text-secondary);
+    @include transition(color);
+    
+    svg {
+      flex-shrink: 0;
+      color: var(--color-primary);
+    }
+    
+    a {
+      color: inherit;
+      @include transition(color);
+      
+      &:hover {
+        color: var(--color-primary);
+      }
+    }
+  }
+  
+  &__social {
+    display: flex;
+    gap: $spacing-md;
+  }
+  
+  &__social-link {
+    @include flex-center;
+    width: 48px;
+    height: 48px;
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    border-radius: $border-radius-lg;
+    @include transition(background, color, transform);
+    
+    &:hover {
+      background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+      color: $color-neutral-100;
+      transform: translateY(-4px);
+    }
+    
+    @include focus-visible;
+  }
+  
+  &__form {
+    background: var(--bg-secondary);
+    padding: $spacing-2xl;
+    border-radius: $border-radius-xl;
+    border: 1px solid var(--border-primary);
+  }
+}
